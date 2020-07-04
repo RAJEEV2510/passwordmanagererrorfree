@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        th{
+            
+            margin-top: 30px;
+            color:black;
+            padding-right: 200px;
+        }
+        .navbar{
+            background-color: black;
+            height: 70px;
+            position: absolute;
+            top:0px;
+            width: 100%;
+           left:0px;
+        }
+        ul{
+            list-style-type: none;
+            padding-top: 10px;
+        
+        }
+        ul li{
+            display: inline;
+            margin-left: 50px;
+            font-size: 15px;
+          
+           
+        }
+        a{
+            text-decoration: none;
+            color:chartreuse;
+            font-weight: 900;
+        }
+        ul li:hover{
+            color:chocolate;
+            cursor: pointer;
+        }
+#speak{
+    color:lightgreen;
+    width: 200px;
+    background-color: black;
+}
+    </style>
+  </head>
+  <body>
+
+    
+
+    <div class="navbar">
+        <ul>
+         <li>
+           <a href="/">Home</a>  
+         </li>
+         <li>
+             <a href="/Addnewpassword">     Add new Password</a>
+        
+         </li>
+         <li>
+             <a href="/viewallpassword"> view all password</a>
+         
+         </li>
+         <li>
+             <a href="/Addnewcategory">  Add New Category</a>
+            
+         </li>
+      
+         <li>
+ 
+             <a href="/passwordcategory"> View All Category</a>
+         </li>
+         <li style="margin-left:200px;">
+             <a href="/logout" style="color:white;font-size: 20px;">Logout</a>
+         </li>
+ </ul>
+     </div>
+
+<h1> Welcome &emsp13;<%=loginuser%></h1>
+
+<div id="div" style="margin-left: 300px; margin-top:100px;height: 200px; width: 400px; background-color: indianred;
+padding: 30px;box-sizing: border-box;border:2px solid black;">
+<button onclick="speak()" id="speak">Speak</button>
+<h2 >
+How to operate your dashboard</h2>
+1.click on add new Category<br>
+2.then view all Category<br>
+3.then add password details<br>
+4. save it in our password manager
+</div>
+<script>
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        const speech=new SpeechSynthesisUtterance();
+        speech.text='WELCOME TO  our password manger <%=loginuser%>'
+        window.speechSynthesis.speak(speech)
+function speak(){
+        speech.text=`
+        HI I AM chhiti 2.0.1 your manager
+        How to operate your dashboard</h2>
+    1.click on add new Category<br>
+    2.then view all Category<br>
+    3.then add password details<br>
+    4. save it in our password manager Thanks  <%=loginuser%>`
+window.speechSynthesis.speak(speech)
+}
+</script>
+ </body>
+</html>

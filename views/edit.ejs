@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        th{
+            
+            margin-top: 30px;
+            color:black;
+            padding-right: 200px;
+        }
+        .navbar{
+            background-color: black;
+            height: 70px;
+            position: absolute;
+            top:0px;
+            width: 100%;
+           left:0px;
+        }
+        ul{
+            list-style-type: none;
+            padding-top: 10px;
+        
+        }
+        ul li {
+            display: inline;
+            margin-left: 50px;
+            font-size: 15px;
+          
+          
+          
+        }
+        a{
+            font-weight:800;
+              text-decoration: none;
+              color:chartreuse;
+        }
+        ul li:hover{
+            color:cadetblue;
+            cursor: pointer;
+        }
+        #form{
+            margin-top: 100px;
+            background-color: cadetblue;
+            border-radius: 20px;
+            width:700px;
+            font-weight: 900;
+            padding: 50px;
+        }
+        #form a{
+            color:darkred;
+            text-decoration: none;
+        }
+       #form input[type="text"]
+        {
+            width: 250px;
+            border:2px solid black;
+            margin-right: 30px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <h1 style="margin-top: 100px;">
+    ADD NEW PASSWORD CATEGORY
+    </h1>
+
+    <div class="navbar">
+       <ul>
+        <li>
+          <a href="/">Home</a>  
+        </li>
+        <li>
+            <a href="/Addnewpassword">     Add new Password</a>
+       
+        </li>
+        <li>
+            <a href="/viewallpassword"> view all password</a>
+        
+        </li>
+        <li>
+            <a href="/Addnewcategory">  Add New Category</a>
+           
+        </li>
+     
+        <li>
+             <a href="/passwordcategory"> View All Category</a>
+        </li>
+        <li style="margin-left:200px;">
+            <a href="/logout" style="color:white;font-size: 20px;">Logout</a>
+        </li>
+
+</ul>
+    </div>
+    <%if(err!=''){%>
+
+        <h3 style="color:red"><%=err.passwordCategory.msg%></h3>
+        <%}%>
+
+    <form method="POST" id="form" >
+     EDIT  Category Name
+   
+        <input type="text" name="passwordCategory" placeholder="Enter your New password Category ">
+
+          <input type="submit" value="add new category">
+          <p>
+              
+              <a href="/passwordcategory">View Category List</a>
+            </p>
+            <input type="hidden" name="id" value="<%=id%>">
+    </form>
+<script>
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+        const speech=new SpeechSynthesisUtterance();
+        speech.text='WELCOME TO  our password manger <%=loginuser%>';
+        window.speechSynthesis.speak(speech);
+
+</script>  
+            
+ </body>
+</html>

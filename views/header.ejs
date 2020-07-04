@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+        th{
+            margin-top: 30px;
+            color:black;
+            padding-right: 200px;
+        }
+        .navbar{
+            background-color: black;
+            height: 70px;
+            position: absolute;
+            top:0px;
+            width: 100%;
+           left:0px;
+        }
+        ul{
+            list-style-type: none;
+            padding-top: 10px;
+        
+        }
+        ul li{
+            display: inline;
+            margin-left: 50px;
+            font-size: 15px;
+          
+           
+        }
+        a{
+            text-decoration: none;
+            color:chartreuse;
+            font-weight: 900;
+        }
+        ul li:hover{
+            color:chocolate;
+            cursor: pointer;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <h1 style="margin-top: 100px;">
+    Password List
+    </h1>
+
+    <div class="navbar">
+        <ul>
+         <li>
+           <a href="/">Home</a>  
+         </li>
+         <li>
+             <a href="/Addnewpassword">     Add new Password</a>
+        
+         </li>
+         <li>
+             <a href="/viewallpassword"> view all password</a>
+         
+         </li>
+         <li>
+             <a href="/Addnewcategory">  Add New Category</a>
+            
+         </li>
+      
+         <li>
+ 
+             <a href="/passwordcategory"> View All Category</a>
+         </li>
+         <li style="margin-left:200px;">
+            <a href="/logout" style="color:white;font-size: 20px;">Logout</a>
+        </li>
+
+ </ul>
+     </div>
+     

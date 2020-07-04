@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+ 
+    <style>
+body{
+  background-image: url('https://images.unsplash.com/photo-1508345228704-935cc84bf5e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80');
+}
+      #footer{
+        display: none;
+        background-color:orange;
+        border-radius: 50px;
+        padding: 30px;
+        width: 500px;
+        margin-top: 140px;
+        box-shadow: 10px 10px 5px blue;
+      }
+      #chiti i{
+          color:orange;
+          font-size: 40px;
+          position: fixed;
+          top: 560px;
+          left:1200px;
+          
+      }
+      #block{
+          display: none;
+      }
+      #header h1{
+          color:white;
+          background-color:blue;
+          font-size: 40px;
+          padding-left: 100px;
+          margin-top:-8px;
+          font-weight: 900;
+          max-width: 100%;
+          border-radius: 40px;
+          text-align: center;
+      }
+     #chatbot {
+          background-color:rgb(145, 145, 216);
+          width: 100%;
+          height: auto;
+          padding-bottom: 100px;
+          border-radius: 40px;
+          
+      }
+      .user{
+          color:Black;
+          font-size: 20px;
+          border:2px solid  ;
+          margin-left: 100px;
+          border-radius: 3px;
+          padding-left: 20px;
+          align-items: center;
+          margin-top: 50px;
+          background-image: linear-gradient(blue,white);
+          background-color: darkmagenta;
+          width: 200px;
+      }
+      .chatbot{
+          color:Black;
+          font-size: 20px;
+          border:2px solid  ;
+          margin-left: 700px;
+          border-radius: 3px;
+          padding-left: 20px;
+          align-items: center;
+          background-image: linear-gradient(blue,yellow);
+          background-color: darkmagenta;
+          width: 500px;
+      }
+ #mic{
+  color: red;background-image: linear-gradient(white,yellow);width: 100px;font-size: 30px;
+  position:absolute;
+  top:150px;
+  border-radius: 10px;
+  left:1150px;
+ }
+#user-chat{
+  margin-left: 100px;
+ }
+
+#chatbothead{
+position: absolute;
+top:120px;
+margin-left:750px;
+}
+form{
+
+  background-color: black;
+  color: yellow;
+  width: 500px;
+  box-sizing: border-box;
+  height: 450px;
+  padding-top: 50px;
+  padding-left: 100px;
+  margin-top: 100px;
+  margin-left: 290px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px blue;
+}
+form i{
+  color: deeppink;
+  font-size: 50px;
+  box-shadow:2px 2px 10px yellow;
+position: absolute;
+top:205px;
+left: 480px;
+}
+form i:hover{
+  color:white;
+  top:200px;
+  left:480px;
+  box-shadow:2px 2px 10px blue;
+}
+form input[type=submit]{
+  color: aqua;
+  background-color: brown;
+  font-weight: 900;
+  font-size: 20px;
+  width: 100px;
+  padding:5px;
+  margin-left: 50px;
+}
+form input[type=submit]:hover{
+  color:red;
+  cursor: pointer;
+  box-shadow: 4px 4px 10px yellow;
+  background-color: cornflowerblue;
+  font-size: 20px;
+  border-radius: 4px;
+}
+#questions h1{
+  margin-top: 100px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+#h11{
+color: black; 
+background-color:orange; 
+margin-top: -50px;
+height: 50px;
+padding-top: 20px;
+text-align: center;
+animation-name: h11;
+animation-timing-function: linear;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+
+}
+@keyframes h11 {
+0%{
+  background-color: pink;
+  margin-left: 30px;
+}
+40%{
+  margin-left: 10px;
+  background-color: white;
+}
+60%{
+  margin-left: -50px;
+  background-color: deeppink;
+}
+
+  
+}
+
+
+</style>
+  </head>
+  <body>
+<div id="body">
+ 
+    <h1  id="h11">
+      SIGNUP FORM
+    </h1>
+    <h3 style="color:blue;top:250px;font-size: 30px;">
+      <%if(msg!=''){%>
+     <%=msg%>
+        <%}%>
+      </h3>
+    <form method="POST"  action="/signup">
+      USERNAME📛(unique)
+      <br>
+      <br>
+      <input type="text" name="username" placeholder="username" required>
+      <br>
+      <br>
+      Email✉️
+      <br>
+      <br>
+      <input type="email" name="email" placeholder="email" required>
+      <br>
+      <br>
+        Password🔑
+      <br>
+      <br>
+      <input type="password" name="password" placeholder="password" required>
+      <br>
+      <br>
+        Confirm Password🔑
+      <br>
+      <br>
+      <input type="password" name="confirmpassword" placeholder="confirm password" required>
+        <input type="submit" value="signup">
+        <p>
+            already have account
+            <a href="/">Login here</a>
+          </p>
+    </form>
+ 
+  </div>
+  <div id="chiti" >
+    <i class="fa fa-comments-o" aria-hidden="true" onclick="fun()"></i>
+  </div>
+
+  <div id="block">
+    
+    <div id="header">
+       <h1> Chatbot </h1>
+
+    </div>
+    <div id="chatbot">
+        <h1 id="user-chat">
+            user
+        </h1>
+
+    <div class="user-area">
+
+        <div class="chatarea-main">
+        </div>
+        <div class="chatarea-outer">
+       
+       
+        </div>     
+    
+
+
+<div class="chatbot-area" >
+<h1 id="chatbothead">
+Chatboat
+</h1>
+
+</div>
+
+<button id="mic">
+🔈
+</button>
+</div>
+
+</div>
+
+   <script >
+  let intro=['raam raam, i am chhiti 2.3.1 ','hello,I am chhitti 2.0','namaste ji, I am chhiti 2.0.1'];
+  let help=['hello i am chhiti,Welcome to password manager','hello i am ROBO,Welcome to password manager ,hello how can i help you',"Chitti here Welcome to password manager"];
+  let password=['password manger is complete secure system created in mongo db and hashing algorithm BY Rutech'];
+  let info=['you can save your social media password ','you can save your banking password'];
+  let bye=['bye take care','tussi nahi jao']
+  let save=['first you will have to sign up and login then add category after save password details']
+  let joke=[' Heights Of Insult By A Grammar Freak Girl. Girl To Boy: "You Are As Useless As Ay In Okay','A Teenage Girl Was Chatting On Facebook. Stranger: "Hey Pretty! Could You Give Me Your Mail Id?" Girl: "Oh Sure, Its IHaveABoyfriend_andiLoveHim','There Are Basically 7 Types Of Girls... 1. Hard Disk Girls: Remember Everything Forever. 2. Ram Girls: Forgets About You The Moment You Turn Her']
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var recognition = new SpeechRecognition();
+      let chatareamain=document.querySelector('.chatarea-main')
+      let chatareaouter=document.querySelector('.chatarea-outer')
+  
+      let mic=document.getElementById('mic');
+      mic.addEventListener('click',function(){
+          recognition.start()
+          mic.style.color="green"
+      })
+  
+  
+      recognition.onresult=function (e)
+      {
+          let resultIndex=e.resultIndex;
+          let transcript=e.results[resultIndex][0]['transcript']
+          console.log(transcript)
+          chatareamain.appendChild(showusermsg(transcript))
+          chatbotvoice(transcript)
+      
+      }
+      function showusermsg(usermsg){
+      let output='';
+      output+=`<div class="chatarea-inner user"> ${usermsg}</div>`;
+      chatareaouter.innerHTML+=output
+      return chatareaouter
+  }
+  function showchatbotmsg(chatbotmsg){
+      let output='';
+      output+=`<div class="chatarea-inner chatbot">${chatbotmsg}</div>`;
+      chatareaouter.innerHTML+=output
+      return chatareaouter
+  }
+  
+  
+  function chatbotvoice(message){
+      const speech=new SpeechSynthesisUtterance();
+      speech.text='RAJEEV KUMAR'
+     
+      if(message.includes('hello'))
+      {   
+          let finalresult=intro[Math.floor(Math.random()*intro.length)]
+          speech.text=finalresult
+  
+      }
+     else if(message.includes('what is Password Manager'))
+      {   
+          let finalresult=password[Math.floor(Math.random()*password.length)]
+          speech.text=finalresult
+  
+      }
+     else if(message.includes('what can I save')  )
+      {   
+          let finalresult=info[Math.floor(Math.random()*info.length)]
+          speech.text=finalresult
+  
+      }
+     else if(message.includes('how can I save my password')||message.includes('how can I save password'))
+      {   
+          let finalresult=save[Math.floor(Math.random()*save.length)]
+          speech.text=finalresult
+  
+      }
+      else if(message.includes('organisation name'))
+      {
+          speech.text="PASSWORD MANAGER technology"
+      }
+      else if(message.includes('who are you'))
+      {
+          let finalresult=intro[Math.floor(Math.random()*intro.length)]
+          speech.text=finalresult
+  
+      }
+      else if(message.includes('tell me about your website'))
+      {
+          speech.text="This website is created for storing your bussiness password,social account,banking password "
+      }
+      else if(message.includes('namaste'))
+      {
+          speech.text="namaste thik hun "
+      }
+      else if(message.includes('Halchal kaisa hai'))
+      {
+          speech.text=" thik hun "
+      }
+      else if(message.includes('tum kaun ho'))
+      {
+          speech.text="Me chhiti 2.1.1 hun "
+      }
+      else if(message.includes('Kya Kam karte ho'))
+      {
+          speech.text="info deta hun"
+      }
+      else if(message.includes('how you earn money'))
+      {
+          speech.text="from visiters "
+      }
+      else if((message.includes('tell me a joke')) || (message.includes('tell me joke') ))
+      {
+          let finalresult=joke[Math.floor(Math.random()*joke.length)]
+          speech.text=finalresult
+  
+      }
+     else if(message.includes('who is Rajiv Kumar'))
+      {   
+      
+          speech.text='rajiv kumar is our boss'
+  
+      }
+      else if(message.includes('how are you'))
+      {    speech.text='fantastic,what about you?'
+      }
+      else if(message.includes('bye'))
+      {   let finalresult=bye[Math.floor(Math.random()*bye.length)]
+          speech.text=finalresult
+  
+      }
+  else{
+      speech.text='Are you mad not asking correct questions,try again'
+  }
+      window.speechSynthesis.speak(speech)
+      chatareamain.appendChild(showchatbotmsg(speech.text))
+  }
+  recognition.onend=function()
+  {
+      mic.style.color="red"
+  }
+  
+      </script>
+  <script>
+      
+      var x=0;
+    
+      function fun(){
+      
+  if(x==0){
+    document.getElementById('body').style.display="none"
+          document.getElementById('block').style.display="block"
+      x=1;
+  
+      }
+      else{
+        document.getElementById('body').style.display="block"
+          document.getElementById('block').style.display="none";
+          x=0;
+  
+      }
+      }
+      </script>
+
+
+</body>
+</html>
